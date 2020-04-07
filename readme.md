@@ -26,7 +26,7 @@ Any entity that would like to run a food delivery service (such as crave on camp
 ## MySQL Queries
 ```sql
 -- Get the total spent for each user
-SELECT u.first_name, u.last_name, SUM(o.price) as total_spent
+SELECT u.first_name, u.last_name, SUM(o.price) AS total_spent
 FROM users u 
 JOIN orders o ON
 u.id = o.user_id
@@ -35,7 +35,7 @@ GROUP BY u.id;
 
 ```sql
 -- get the average order cost for each resturant
-SELECT r.name, AVG(o.price) as avg_spent
+SELECT r.name, AVG(o.price) AS avg_spent
 FROM orders o 
 JOIN restaurants r ON
 r.id = o.restaurant_id
@@ -44,7 +44,7 @@ GROUP BY o.restaurant_id;
 
 ```sql
 -- get the average rating of each driver
-SELECT u.first_name, u.last_name, AVG(r.rating) as avg_rating FROM users u
+SELECT u.first_name, u.last_name, AVG(r.rating) AS avg_rating FROM users u
 JOIN orders o ON
 o.driver_id = u.id
 JOIN ratings r ON o.id = r.id
@@ -100,6 +100,8 @@ Additionally, when an order is created
 ## MySQL dump
 
 The SQL to generate only the tables and procedures can be found in the tables.sql files
+
+The generated data can be found in data.sql
 
 The MySql dump with all of the data is dump.sql
  
