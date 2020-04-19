@@ -12,7 +12,7 @@ Any entity that would like to run a food delivery service (such as crave on camp
 
 
 ## Business Rules
-1. Students should be able to order food as well as deliver food.
+1. Students should be able to order food as well as deliver food
 2. Food should be able to be ordered to a location
 3. A record of order should be kept for each user
 4. Valid restaurants to order from must be approved first
@@ -56,7 +56,7 @@ GROUP BY u.id
 ```sql
 CREATE DEFINER = CURRENT_USER TRIGGER `mydb`.`orders_AFTER_DELETE` AFTER DELETE ON `orders` FOR EACH ROW
 BEGIN
-	INSERT INTO cancelled_orders(cancelled_orders.id) VALUES (orders.id);
+    INSERT INTO cancelled_orders(cancelled_orders.id) VALUES (orders.id);
 END
 ```
 ## Stored Procedure
@@ -64,8 +64,8 @@ END
 DELIMITER $$
 
 CREATE PROCEDURE QuickOrder (
-	IN first_name VARCHAR(128),
-	IN last_name VARCHAR(128),
+    IN first_name VARCHAR(128),
+    IN last_name VARCHAR(128),
     IN email VARCHAR(255),
 	IN phone VARCHAR(10),
     IN address VARCHAR(256),
@@ -77,7 +77,7 @@ CREATE PROCEDURE QuickOrder (
     IN order_text VARCHAR(1024)
 )
 BEGIN
-	INSERT INTO users (first_name, last_name, email, phone) VALUES (first_name, last_name, email, phone);
+    INSERT INTO users (first_name, last_name, email, phone) VALUES (first_name, last_name, email, phone);
     SET @userid = LAST_INSERT_ID();
     
     INSERT INTO locations (address, address2, city, state, zip, user_id) VALUES (address, address2, city, state, zip, userid);
@@ -105,3 +105,8 @@ The generated data can be found in data.sql
 
 The MySql dump with all of the data is dump.sql
  
+ ## Presentation
+ 
+ View the slides [here](https://docs.google.com/presentation/d/1qs8Xnh6SEhNay_Fixh8lE5ZL5RedROPQ8gEZAiJto60/edit?usp=sharing)
+ 
+ Watch the video [here](https://youtu.be/7uV8n6E7e4w)
